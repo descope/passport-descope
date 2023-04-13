@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 import { Request, Response } from 'express';
-import { SignOptions } from 'jsonwebtoken';
 import { StrategyCreatedStatic } from 'passport';
-import { generateToken, decodeToken } from './token';
+import { tokenFromHeader, tokenFromCookie } from './token';
+import DescopeClient from '@descope/node-sdk';
 
 type VerifyCallback = (
   payload: any,
@@ -12,37 +12,44 @@ type VerifyCallback = (
 ) => void;
 
 interface Options {
-  secret: string;
+  /** Descope project id to use */
+  projectId: string;
+  /** Descope optional management key to retrieve extra user details */
+  managementKey?: string;
+  /** The prefix for the magic link that will be part of the auth email */
   callbackUrl: string;
-  jwtOptions?: SignOptions;
-  sendMagicLink: (
-    destination: string,
-    href: string,
-    verificationCode: string,
-    req: Request,
-  ) => Promise<void>;
+  /** The callback to load the user details if stored outside of Descope */
   verify: VerifyCallback;
-
-  /** @deprecated */
-  confirmUrl?: string;
+  /** Auto refresh the session token if expired */
+  autoRefresh?: boolean;
 }
 
-class MagicLoginStrategy {
-  name: string = 'magiclogin';
+interface RequestOptions {
+  /** The action we should take */
+  action: string;
+}
 
-  constructor(private _options: Options) {}
+type DescopeSdk = ReturnType<typeof DescopeClient>;
+type ValidateSessionRes = ReturnType<DescopeSdk["validateJwt"]>;
+type AuthenticationInfo = Awaited<ValidateSessionRes>;
 
-  authenticate(this: StrategyCreatedStatic & MagicLoginStrategy, req: Request): void {
+class DescopeStrategy {
+  name: string = 'descope';
+  _descopeClient: DescopeSdk;
+
+  constructor(private _options: Options) {
+    this._descopeClient = DescopeClient({ projectId: _options.projectId, managementKey: _options.managementKey });
+  }
+
+  async authenticate(this: StrategyCreatedStatic & DescopeStrategy, req: Request, options?: any): Promise<void> {
     const self = this;
-
-    let payload = null;
-
+    const token = tokenFromHeader(req) || tokenFromCookie(req);
+    let authInfo: AuthenticationInfo = null;
     try {
-      payload = decodeToken(self._options.secret, (req.query.token || req.body?.token) as string);
+      authInfo = await self._descopeClient.validateJwt(token);
     } catch (error) {
       const defaultMessage = 'No valid token provided';
       const message = error instanceof Error ? error.message : defaultMessage;
-
       return self.fail(message);
     }
 
@@ -53,52 +60,15 @@ class MagicLoginStrategy {
       if (!user) {
         return self.fail(info);
       }
+      // Retrieve user details if requested
+      //  const userDetails = self._descopeClient.management.user.loadByUserId(authInfo.sub);
       return self.success(user, info);
     };
 
-    self._options.verify(payload, verifyCallback, req);
+    self._options.verify(authInfo, verifyCallback, req);
 
     return undefined;
   }
-
-  send = (req: Request, res: Response): void => {
-    const payload = req.method === 'GET' ? req.query : req.body;
-    if (req.method === 'POST' && !req.headers['content-type']?.match('application/json')) {
-      res.status(400).send('Content-Type must be application/json when using POST method.');
-      return;
-    }
-
-    if (!payload.destination) {
-      res.status(400).send('Please specify the destination.');
-      return;
-    }
-
-    const code = `${Math.floor(Math.random() * 90000) + 10000}`;
-    const jwt = generateToken(
-      this._options.secret,
-      {
-        ...payload,
-        code,
-      },
-      this._options.jwtOptions,
-    );
-
-    this._options
-      .sendMagicLink(payload.destination, `${this._options.callbackUrl}?token=${jwt}`, code, req)
-      .then(() => {
-        res.json({ success: true, code });
-      })
-      .catch((error: any) => {
-        console.error(error);
-        res.json({ success: false, error });
-      });
-  };
-
-  /** @deprecated */
-  confirm = (req: Request, res: Response): void => {
-    console.warn(`magicLink.confirm was removed in v1.0.7, it is no longer necessary.`);
-    res.redirect(`${this._options.callbackUrl}?token=${req.query.token}`);
-  };
 }
 
-export default MagicLoginStrategy;
+export default DescopeStrategy;

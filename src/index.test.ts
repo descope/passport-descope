@@ -1,32 +1,21 @@
-import MagicLinkStrategy from '.';
+import DescopeStrategy from '.';
 
 it('returns some properties', () => {
   expect(
-    new MagicLinkStrategy({
-      secret: 'asdf',
-      callbackUrl: '/auth/magiclink/callback',
-      confirmUrl: '/auth/magiclink/confirm',
-      sendMagicLink: async (destination, href) => {
-        // eslint-disable-next-line no-console
-        console.log(
-          destination,
-          `Click this link to finish logging in: https://yourcompany.com${href}`,
-        );
-      },
+    new DescopeStrategy({
+      projectId: 'P2NyeltBwxXl01AO1zxIRoqusres',
+      callbackUrl: '/auth/cb',
       verify: (payload, callback) => {
         callback(payload.destination);
       },
     }),
   ).toEqual({
     _options: {
-      callbackUrl: '/auth/magiclink/callback',
-      confirmUrl: '/auth/magiclink/confirm',
-      secret: 'asdf',
-      sendMagicLink: expect.any(Function),
+      projectId: 'P2NyeltBwxXl01AO1zxIRoqusres',
+      callbackUrl: '/auth/cb',
       verify: expect.any(Function),
     },
-    confirm: expect.any(Function),
-    name: 'magiclogin',
-    send: expect.any(Function),
+    _descopeClient: expect.any(Object),
+    name: 'descope'
   });
 });
