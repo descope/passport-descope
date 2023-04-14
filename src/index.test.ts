@@ -4,7 +4,6 @@ it('returns some properties', () => {
   expect(
     new DescopeStrategy({
       projectId: 'P2NyeltBwxXl01AO1zxIRoqusres',
-      callbackUrl: '/auth/cb',
       verify: (payload, callback) => {
         callback(payload.destination);
       },
@@ -12,9 +11,9 @@ it('returns some properties', () => {
   ).toEqual({
     _options: {
       projectId: 'P2NyeltBwxXl01AO1zxIRoqusres',
-      callbackUrl: '/auth/cb',
       verify: expect.any(Function),
     },
+    _realm: 'Users',
     _descopeClient: expect.any(Object),
     name: 'descope'
   });
