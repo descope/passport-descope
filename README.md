@@ -50,7 +50,7 @@ If you would like to learn more about Passport JS Strategies, please visit their
 
 ## Code Samples
 
-- [TODO List Sample App]()
+- [TODO List Sample App](https://github.com/descope-sample-apps/passportjs_sample)
 
 ## Feedback
 
