@@ -74,7 +74,7 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
-    "@descope/node-sdk": "1.5.3"
+    "@descope/node-sdk": "1.5.4"
   },
   "peerDependencies": {
     "tslib": ">=1.14.1"
