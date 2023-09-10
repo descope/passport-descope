@@ -1,9 +1,13 @@
 name: CI
 
-on: push
+on:
+  pull_request:
+  push:
+    branches:
+      - main
 
 env:
-  NODE_VERSION: 16.14
+  NODE_VERSION: 18
 
 jobs:
   build:
@@ -18,14 +22,11 @@ jobs:
       # Skip post-install scripts here, as a malicious
       # script could steal NODE_AUTH_TOKEN.
       - name: Install dependencies
-        run: npm ci --ignore-scripts
+        run: yarn install
         env:
           CI: true
-          NODE_AUTH_TOKEN: ${{ secrets.CI_NPM_READ_ORG }}
       - name: Building
-        run: npm run build
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.CI_NPM_READ_ORG }}
+        run: yarn build
 
   gitleaks:
     name: 🔒 Run Git leaks
@@ -39,12 +40,11 @@ jobs:
       # Skip post-install scripts here, as a malicious
       # script could steal NODE_AUTH_TOKEN.
       - name: Install dependencies
-        run: npm ci --ignore-scripts
+        run: yarn install
         env:
           CI: true
-          NODE_AUTH_TOKEN: ${{ secrets.CI_NPM_READ_ORG }}
       - name: Gitleaks
-        run: npm run leaks
+        run: yarn leaks
         shell: bash
 
   unit-test:
@@ -52,20 +52,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [12, 14, 16, 18]
+        node-version: [16, 18, 20]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: ${{ matrix.node-version }}
       # Skip post-install scripts here, as a malicious
       # script could steal NODE_AUTH_TOKEN.
       - name: Install dependencies
-        run: npm ci --ignore-scripts
+        run: yarn install
         env:
           CI: true
-          NODE_AUTH_TOKEN: ${{ secrets.CI_NPM_READ_ORG }}
       - name: Testing
         run: npm test
       - name: Coverage check
