@@ -40,7 +40,7 @@ jobs:
       # Skip post-install scripts here, as a malicious
       # script could steal NODE_AUTH_TOKEN.
       - name: Install dependencies
-        run: npm install
+        run: yarn install
         env:
           CI: true
       - name: Gitleaks
@@ -62,7 +62,7 @@ jobs:
       # Skip post-install scripts here, as a malicious
       # script could steal NODE_AUTH_TOKEN.
       - name: Install dependencies
-        run: npm install
+        run: yarn install
         env:
           CI: true
       - name: Testing
