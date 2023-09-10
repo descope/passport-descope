@@ -1,10 +1,10 @@
-import typescript from '@rollup/plugin-typescript';
-import del from 'rollup-plugin-delete';
-import { terser } from 'rollup-plugin-terser';
-import dts from 'rollup-plugin-dts';
-import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
 import fs from 'fs';
+import del from 'rollup-plugin-delete';
+import { dts } from 'rollup-plugin-dts';
+import { terser } from 'rollup-plugin-terser';
 
 const packageJson = require('./package.json');
 
@@ -42,7 +42,7 @@ export default [
     external,
   },
   {
-    input: './dist/src/index.d.ts',
+    input: './dist/dts/src/index.d.ts',
     output: [{ file: packageJson.types, format: 'esm' }],
     plugins: [
       dts(),
