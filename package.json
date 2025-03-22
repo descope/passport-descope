@@ -44,7 +44,7 @@
     "@rollup/plugin-node-resolve": "15.3.0",
     "@rollup/plugin-typescript": "11.1.5",
     "@types/express": "5.0.0",
-    "@types/jest": "29.5.5",
+    "@types/jest": "29.5.14",
     "@types/jsonwebtoken": "9.0.3",
     "@types/passport": "1.0.13",
     "@types/node": "22.7.6",
