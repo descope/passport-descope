@@ -2294,10 +2294,10 @@ eslint-plugin-prefer-arrow@1.2.3:
   resolved "https://registry.yarnpkg.com/eslint-plugin-prefer-arrow/-/eslint-plugin-prefer-arrow-1.2.3.tgz#e7fbb3fa4cd84ff1015b9c51ad86550e55041041"
   integrity sha512-J9I5PKCOJretVuiZRGvPQxCbllxGAV/viI20JO3LYblAodofBxyMnZAJ+WGeClHgANnSJberTNoFWWjrWKBuXQ==
 
-eslint-plugin-prettier@5.3.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.3.0.tgz#752aca7b2635c619e545318d01ab0a4e6204b8ef"
-  integrity sha512-IiIlXr77W7cksZ6Rws/bJ9S3aPNPriY3Gc1+ZPtmcaA16Q9MqjesSUzjBrMKcYPgDwBzgeKGvzhWu2GtXpKJQA==
+eslint-plugin-prettier@5.3.1:
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.3.1.tgz#9a16effb2d9d1c6ff44d182f48becfc54d5cff5a"
+  integrity sha512-vad9VWgEm9xaVXRNmb4aeOt0PWDc61IAdzghkbYQ2wavgax148iKoX1rNJcgkBGCipzLzOnHYVgL7xudM9yccQ==
   dependencies:
     prettier-linter-helpers "^1.0.0"
     synckit "^0.11.0"
