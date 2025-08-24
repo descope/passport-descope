@@ -330,19 +330,19 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@descope/core-js-sdk@2.24.3":
-  version "2.24.3"
-  resolved "https://registry.yarnpkg.com/@descope/core-js-sdk/-/core-js-sdk-2.24.3.tgz#755ff79f58be00b3a9d9810fefd39a737f6e428e"
-  integrity sha512-NqK57zXgKozIqCyjxhu7l4Mg6zPYOB7uxiZKnY3zpO2rOAiaSWZPg5dVrXtaDMJcBbHYsIY97LYfunMD3V/eiw==
+"@descope/core-js-sdk@2.46.2":
+  version "2.46.2"
+  resolved "https://registry.yarnpkg.com/@descope/core-js-sdk/-/core-js-sdk-2.46.2.tgz#b4fdb3df6282dee5a91cf293b59ac2ea4b83b42a"
+  integrity sha512-aAMgNEgQIBkxs33VH36XzzR9Sl6bJG9LSUGASFa+rUQMO7jhSwX++ffW+fjo7f4i/J6rsUrFH7sVePpBGNokcQ==
   dependencies:
-    jwt-decode "3.1.2"
+    jwt-decode "4.0.0"
 
-"@descope/node-sdk@1.6.10":
-  version "1.6.10"
-  resolved "https://registry.yarnpkg.com/@descope/node-sdk/-/node-sdk-1.6.10.tgz#07336fc702d8a786ed39305568958a63057d158d"
-  integrity sha512-oQVLzRyI93nUShhjRuDIJ+cm/JnR15EgXupvCDecLZ+8ZvPIKb0SqBB+vdYrDCyNhd5kAbeWBRD+EVKt/WKeag==
+"@descope/node-sdk@1.7.13":
+  version "1.7.13"
+  resolved "https://registry.yarnpkg.com/@descope/node-sdk/-/node-sdk-1.7.13.tgz#8c46f1de39c01a9d2c223b532bbdcf0fe358bab5"
+  integrity sha512-73isbswkfMIwzfr9RCbpUsXE30bD2IvKkpRihYNDfczXvIbQJI7oqXqMT5R+6GiskOlT2l2y2wQ+0p8hWwl7KQ==
   dependencies:
-    "@descope/core-js-sdk" "2.24.3"
+    "@descope/core-js-sdk" "2.46.2"
     cross-fetch "^4.0.0"
     jose "5.2.2"
     tslib "^2.0.0"
@@ -3895,10 +3895,10 @@ json5@^2.2.3:
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
   integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
 
-jwt-decode@3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-3.1.2.tgz#3fb319f3675a2df0c2895c8f5e9fa4b67b04ed59"
-  integrity sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==
+jwt-decode@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-4.0.0.tgz#2270352425fd413785b2faf11f6e755c5151bd4b"
+  integrity sha512-+KJGIyHgkGuIq3IEBNftfhW/LfWhXUIY6OmyVWjliu5KH1y0fw7VQ8YndE2O4qZdMSd9SqbnC8GOcZEy0Om7sA==
 
 keyv@^4.5.3:
   version "4.5.3"
