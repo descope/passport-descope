@@ -47,7 +47,7 @@
     "@types/jest": "29.5.14",
     "@types/jsonwebtoken": "9.0.10",
     "@types/passport": "1.0.17",
-    "@types/node": "22.18.1",
+    "@types/node": "22.18.2",
     "@types/node-fetch": "2.6.13",
     "@typescript-eslint/eslint-plugin": "6.21.0",
     "@typescript-eslint/parser": "6.21.0",
