@@ -6,9 +6,6 @@ on:
     branches:
       - main
 
-env:
-  NODE_VERSION: 18
-
 jobs:
   build:
     name: 👷 Build
@@ -18,49 +15,36 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version: ${{ env.NODE_VERSION }}
-      # Skip post-install scripts here, as a malicious
-      # script could steal NODE_AUTH_TOKEN.
+          node-version-file: package.json
       - name: Install dependencies
         run: yarn install
-        env:
-          CI: true
       - name: Building
         run: yarn build
 
   gitleaks:
-    name: 🔒 Run Git leaks
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          node-version: ${{ env.NODE_VERSION }}
-      # Skip post-install scripts here, as a malicious
-      # script could steal NODE_AUTH_TOKEN.
-      - name: Install dependencies
-        run: yarn install
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
         env:
-          CI: true
-      - name: Gitleaks
-        run: yarn leaks
-        shell: bash
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+          
 
   unit-test:
     name: 👔 Run Unit Tests
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16, 18, 20]
+        node-version: [12, 14, 16, 18, 20, 22, 24]
     steps:
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: ${{ matrix.node-version }}
-      # Skip post-install scripts here, as a malicious
-      # script could steal NODE_AUTH_TOKEN.
       - name: Install dependencies
         run: yarn install
         env:
