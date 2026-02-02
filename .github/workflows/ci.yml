@@ -58,3 +58,11 @@ jobs:
           min_coverage: 15
           result_path: coverage/lcov.info
           token: ${{ github.token }}
+
+  checks-passed:
+    name: ✅ All Checks Passed
+    runs-on: ubuntu-latest
+    needs: [build, unit-test, gitleaks]
+    steps:
+      - name: All checks passed
+        run: echo "All checks have passed successfully."
