@@ -502,10 +502,10 @@
   dependencies:
     jwt-decode "4.0.0"
 
-"@descope/node-sdk@1.10.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@descope/node-sdk/-/node-sdk-1.10.0.tgz#74786aea66d925ac4b0d4c63c946c40cb04c912f"
-  integrity sha512-v4kII4vcCdQO/ootlGpB97ovjTwE3Z2S0MmIF5j7kgXQIPTUM01fOsbAaPPUn5lXX7muD2VcsDs6Ic1k2yQjrA==
+"@descope/node-sdk@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@descope/node-sdk/-/node-sdk-2.2.0.tgz#b1ced1c0fe6c4d68563f3b756629f3c12a55d4da"
+  integrity sha512-7ZAfXnoF5edZyO+lCEkEv4hA50pY6H5qyytn/OMQjwpIUJyD5aM865Z3yeTPiOzrzkyxCTra6A8ucljpP/Cixg==
   dependencies:
     "@descope/core-js-sdk" "2.57.0"
     cross-fetch "^4.0.0"
