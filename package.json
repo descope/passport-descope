@@ -1,6 +1,6 @@
 {
   "name": "passport-descope",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Passport strategy for Descope authentication service",
   "typings": "dist/index.d.ts",
   "main": "dist/cjs/index.cjs.js",
