@@ -5010,14 +5010,17 @@ rollup-plugin-delete@3.0.2:
   dependencies:
     del "^8.0.1"
 
-rollup-plugin-dts@6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-dts/-/rollup-plugin-dts-6.3.0.tgz#9de66054358db8325c178f44b2be7e564e27f8d0"
-  integrity sha512-d0UrqxYd8KyZ6i3M2Nx7WOMy708qsV/7fTHMHxCMCBOAe3V/U7OMPu5GkX8hC+cmkHhzGnfeYongl1IgiooddA==
+rollup-plugin-dts@6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-dts/-/rollup-plugin-dts-6.4.0.tgz#31503698784d178abd7fec65e3cecb8eb66ea7d1"
+  integrity sha512-2i00A5UoPCoDecLEs13Eu105QegSGfrbp1sDeUj/54LKGmv6XFHDxWKC6Wsb4BobGUWYVCWWjmjAc8bXXbXH/Q==
   dependencies:
+    "@jridgewell/remapping" "^2.3.5"
+    "@jridgewell/sourcemap-codec" "^1.5.5"
+    convert-source-map "^2.0.0"
     magic-string "^0.30.21"
   optionalDependencies:
-    "@babel/code-frame" "^7.27.1"
+    "@babel/code-frame" "^7.29.0"
 
 rollup@4.59.0:
   version "4.59.0"
