@@ -65,7 +65,7 @@
     "eslint-plugin-prettier": "5.5.5",
     "jest": "30.3.0",
     "prettier": "3.8.1",
-    "rollup": "4.59.0",
+    "rollup": "4.59.1",
     "rollup-plugin-delete": "3.0.2",
     "rollup-plugin-dts": "6.4.0",
     "@rollup/plugin-terser": "1.0.0",
