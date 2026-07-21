@@ -495,19 +495,20 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@descope/core-js-sdk@2.57.0":
-  version "2.57.0"
-  resolved "https://registry.yarnpkg.com/@descope/core-js-sdk/-/core-js-sdk-2.57.0.tgz#443fd7b603c46b108115eb189b02a7ecf2300b0a"
-  integrity sha512-dNvmlyz81VNqmZ699GdhucXQD15kaX3by9086bGR6zWHHVlsenHxW9kDpLoKPoWsKkXxvUq0Ysh9bi+6+A4LyQ==
+"@descope/core-js-sdk@^2.66.0":
+  version "2.67.0"
+  resolved "https://registry.yarnpkg.com/@descope/core-js-sdk/-/core-js-sdk-2.67.0.tgz#ddc550cadd3de3c4fb3fd934013a90eb3c3b1611"
+  integrity sha512-KOnmnhdePQ4JGNdy3sXH+YXWdo7bAbAjyg9NdkViS0E14MrOZDAXDPv6zP7T3akD2e6Q4KWOaG7dNurP8bCWiA==
   dependencies:
     jwt-decode "4.0.0"
+    tslib "2.8.1"
 
-"@descope/node-sdk@1.10.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@descope/node-sdk/-/node-sdk-1.10.0.tgz#74786aea66d925ac4b0d4c63c946c40cb04c912f"
-  integrity sha512-v4kII4vcCdQO/ootlGpB97ovjTwE3Z2S0MmIF5j7kgXQIPTUM01fOsbAaPPUn5lXX7muD2VcsDs6Ic1k2yQjrA==
+"@descope/node-sdk@2.13.0":
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/@descope/node-sdk/-/node-sdk-2.13.0.tgz#149c9ff29aaff322a9fff9a9d2fd12b50c54a72b"
+  integrity sha512-CiBNdk7f5C1tqsMJGRZ9Joi3hT8AAZE9AXMWvQc3kmi8bVhz417RW5XItWed5TcBZVM1xpGRfUrDxMc8U8lSsA==
   dependencies:
-    "@descope/core-js-sdk" "2.57.0"
+    "@descope/core-js-sdk" "^2.66.0"
     cross-fetch "^4.0.0"
     jose "5.2.2"
     tslib "^2.0.0"
@@ -5627,15 +5628,15 @@ tsconfig-paths@^3.15.0:
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
+tslib@2.8.1, tslib@^2.4.0:
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
+  integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
+
 tslib@^2.0.0:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.3.tgz#0438f810ad7a9edcde7a241c3d80db693c8cbfe0"
   integrity sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==
-
-tslib@^2.4.0:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
-  integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
 
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
