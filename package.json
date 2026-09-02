@@ -67,7 +67,7 @@
     "prettier": "3.9.6",
     "rollup": "4.62.4",
     "rollup-plugin-delete": "3.0.2",
-    "rollup-plugin-dts": "6.4.1",
+    "rollup-plugin-dts": "6.5.1",
     "@rollup/plugin-terser": "1.0.0",
     "ts-jest": "29.4.12",
     "ts-node": "10.9.2",
